@@ -14,6 +14,7 @@ SECRET_KEY = env.str("SECRET_KEY", "REPLACE_ME")
 
 DEBUG = env.bool("DEBUG", True)
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
