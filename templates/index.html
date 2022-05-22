@@ -64,14 +64,14 @@
     <section>
       <div class="container">
         <div class="d-flex">
-          {% for post in most_popular_posts%} 
+          {% for post in most_popular_posts %} 
             <div class="flex-fill" style="margin-right: 30px;">
               <div class="card blog__slide text-center">
                 <div class="blog__slide__img">
                   <img class="card-img rounded-0" src={{post.image_url}} alt="">
                 </div>
                 <div class="blog__slide__content">
-                  <h3><a href="#">{{post.title}}</a></h3>
+                  <h3><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h3>
                   <p>{{post.published_at}}</p>
                 </div>
               </div>
@@ -96,16 +96,16 @@
                     <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
                   {% endif %}
                   <ul class="thumb-info" style="max-width: 550px;">
-                    <li><a href="#"><i class="ti-user"></i>{{new_post.author}}</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>{{new_post.published_at}}</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>{{new_post.comments_amount}}</a></li>
+                    <li><a href="{% url 'post_detail' slug=new_post.slug %}"><i class="ti-user"></i>{{new_post.author}}</a></li>
+                    <li><a href="{% url 'post_detail' slug=new_post.slug %}"><i class="ti-notepad"></i>{{new_post.published_at}}</a></li>
+                    <li><a href="{% url 'post_detail' slug=new_post.slug %}"><i class="ti-themify-favicon"></i>{{new_post.comments_amount}}</a></li>
                   </ul>
                 </div>
                 <div class="details mt-20">
                   <h3>{{new_post.title}}</h3>
                   <p>{{new_post.text|truncatechars:200}}</p>
 
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <a class="button" href="{% url 'post_detail' slug=new_post.slug %}">Read More <i class="ti-arrow-right"></i></a>
 
                 </div>
               </div>
